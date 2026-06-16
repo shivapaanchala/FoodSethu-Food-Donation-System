@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4 class="mb-4">
+    Welcome,
+    {{ session['user_name'] }}
+</h4>
+
+<hr>
+
+<div class="row mt-4">
+
+    <div class="col-md-6">
+
+        <div class="card shadow border-0 text-center">
+
+            <div class="card-body">
+
+                <h5>Available Donations</h5>
+
+                <h1 class="text-success">
+                    {{ available }}
+                </h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="card shadow border-0 text-center">
+
+            <div class="card-body">
+
+                <h5>Accepted Donations</h5>
+
+                <h1 class="text-primary">
+                    {{ accepted }}
+                </h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card">
+            <div class="card-body">
+
+                <h5>View Donations</h5>
+
+                <a href="/view-donations"
+                   class="btn btn-success">
+
+                   Open
+
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}   

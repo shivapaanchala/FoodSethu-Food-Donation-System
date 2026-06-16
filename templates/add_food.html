@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card p-4 shadow">
+
+    <h2 class="mb-4">Add Food Donation</h2>
+
+    <form method="POST">
+
+        <div class="mb-3">
+            <label>Food Item</label>
+            <input type="text" name="food_item" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Quantity</label>
+            <input type="text" name="quantity" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Location</label>
+            <input type="text" name="location" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Prepared Time</label>
+            <input type="time" name="prepared_time" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Expiry Time</label>
+            <input type="time" name="expiry_time" class="form-control" required>
+        </div>
+
+        <button class="btn btn-success">
+            Add Donation
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

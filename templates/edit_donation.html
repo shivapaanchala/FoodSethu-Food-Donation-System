@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Donation</title>
+</head>
+<body>
+
+    <h2>Edit Donation</h2>
+
+    <form method="POST">
+
+    <label>Food Item:</label>
+    <input type="text"
+           name="food_item"
+           value="{{ donation[2] }}">
+    <br><br>
+
+    <label>Quantity:</label>
+    <input type="text"
+           name="quantity"
+           value="{{ donation[3] }}">
+    <br><br>
+
+    <label>Location:</label>
+    <input type="text"
+           name="location"
+           value="{{ donation[4] }}">
+    <br><br>
+
+    <label>Prepared Time:</label>
+    <input type="text"
+           name="prepared_time"
+           value="{{ donation[5] }}">
+    <br><br>
+
+    <label>Expiry Time:</label>
+    <input type="text"
+           name="expiry_time"
+           value="{{ donation[6] }}">
+    <br><br>
+
+    <button type="submit">
+        Update Donation
+    </button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">Available Food Donations</h2>
+
+<form method="GET" class="mb-3">
+    <input type="text" name="location" value="{{ request.args.get('location', '') }}" placeholder="Search by location" class="form-control w-25 d-inline">
+    <button class="btn btn-primary">Search</button>
+</form>
+
+{% if donations %}
+
+    <div class="row">
+
+        {% for donation in donations %}
+
+    <div class="col-md-4 mb-3">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h5>{{ donation[2] }}</h5>
+
+                <p><b>Quantity:</b> {{ donation[3] }}</p>
+                <p><b>Location:</b> {{ donation[4] }}</p>
+                <p><b>Prepared:</b> {{ donation[5] }}</p>
+                <p><b>Expiry:</b> {{ donation[6] }}</p>
+
+                <p><b>Status:</b> {{ donation[7] }}</p>
+
+                <p>
+                    <b>Warning:</b>
+
+                    {% if donation[-1] == 'Safe' %}
+
+                        <span class="badge bg-success">
+                            Safe
+                        </span>
+
+                    {% elif donation[-1] == '⚠ Expires Soon' %}
+
+                        <span class="badge bg-warning text-dark">
+                            Expires Soon
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-danger">
+                            Expired
+                        </span>
+
+                    {% endif %}
+
+                </p>
+
+                {% if donation[-1] != '❌ Expired' %}
+
+                <a href="/accept-donation/{{ donation[0] }}"
+                   class="btn btn-success btn-sm">
+
+                    Accept
+
+                </a>
+
+                 {% else %}
+
+                <button class="btn btn-danger btn-sm" disabled>
+
+                    Expired
+
+                </button>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="alert alert-warning">
+
+    No donations found for this location.
+
+</div>
+
+{% endif %}
+
+{% endblock %} 
